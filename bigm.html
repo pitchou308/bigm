@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Big M - Burgers à Saint-Étienne</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7a2c7d2c1d.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0b0b;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 90px;
+      letter-spacing: 3px;
+      color: #ffb300;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin: 10px 0 30px;
+      color: #f1f1f1;
+    }
+
+    .btn-group a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #ffb300;
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: #ff9800;
+      transform: scale(1.05);
+    }
+
+    .btn-outline {
+      border: 2px solid #ffb300;
+      color: #ffb300;
+    }
+
+    .btn-outline:hover {
+      background: #ffb300;
+      color: #000;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 10%;
+    }
+
+    h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #ffb300;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    /* ABOUT */
+    .about p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ddd;
+      max-width: 800px;
+    }
+
+    /* MENU */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #151515;
+      padding: 20px;
+      border-radius: 15px;
+      transition: 0.3s;
+      border: 1px solid #222;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #ffb300;
+    }
+
+    .card h3 {
+      color: #ffb300;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .review {
+      background: #151515;
+      padding: 20px;
+      border-radius: 15px;
+      font-style: italic;
+    }
+
+    .review span {
+      display: block;
+      margin-top: 10px;
+      color: #ffb300;
+      font-style: normal;
+      font-weight: bold;
+    }
+
+    /* INFO */
+    .info p {
+      margin-bottom: 10px;
+      color: #ddd;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    /* CONTACT */
+    .contact-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 30px;
+      background: #ffb300;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact-buttons a:hover {
+      transform: scale(1.05);
+      background: #ff9800;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #000;
+      color: #777;
+    }
+
+    /* ANIMATIONS */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.8s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width:768px){
+      .hero h1 { font-size: 60px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>BIG M</h1>
+      <p>Les burgers qui marquent les esprits</p>
+      <div class="btn-group">
+        <a href="#menu" class="btn-primary">Voir le menu</a>
+        <a href="#contact" class="btn-outline">Commander</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="about fade">
+    <h2>À propos</h2>
+    <p>
+      Big M, c’est bien plus qu’un restaurant de burgers à Saint-Étienne.
+      C’est une expérience street food moderne avec des recettes généreuses,
+      des ingrédients frais et une ambiance urbaine chaleureuse.
+      Chaque burger est préparé maison pour offrir un goût unique et intense.
+    </p>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="fade">
+    <h2>Menu</h2>
+
+    <div class="menu-grid">
+
+      <div class="card">
+        <h3>Big M Classic</h3>
+        <p>Bœuf, cheddar, salade, sauce maison</p>
+        <div class="price">8.90€</div>
+      </div>
+
+      <div class="card">
+        <h3>Chicken Burger</h3>
+        <p>Poulet crispy, sauce blanche, salade</p>
+        <div class="price">9.50€</div>
+      </div>
+
+      <div class="card">
+        <h3>Double Cheese</h3>
+        <p>Double steak, double cheddar, sauce BBQ</p>
+        <div class="price">11.90€</div>
+      </div>
+
+      <div class="card">
+        <h3>Frites Maison</h3>
+        <p>Croustillantes et dorées à souhait</p>
+        <div class="price">3.50€</div>
+      </div>
+
+      <div class="card">
+        <h3>Nuggets x6</h3>
+        <p>Poulet pané maison</p>
+        <div class="price">5.00€</div>
+      </div>
+
+      <div class="card">
+        <h3>Boissons</h3>
+        <p>Sodas, jus, eau fraîche</p>
+        <div class="price">2.50€</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="fade">
+    <h2>Avis clients</h2>
+    <div class="reviews">
+
+      <div class="review">
+        “Meilleur burger que j’ai mangé à Saint-Étienne, viande incroyable !”
+        <span>- Sarah M.</span>
+      </div>
+
+      <div class="review">
+        “Service rapide, super ambiance, je recommande à 100%.”
+        <span>- Yassine K.</span>
+      </div>
+
+      <div class="review">
+        “Les frites maison sont une tuerie, je reviendrai souvent.”
+        <span>- Lucas D.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="info fade">
+    <h2>Infos pratiques</h2>
+    <p><i class="fas fa-map-marker-alt"></i> Saint-Étienne, France</p>
+    <p><i class="fas fa-clock"></i> Lun - Dim : 11h - 23h</p>
+    <p><i class="fas fa-phone"></i> 06 12 34 56 78</p>
+
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2786.123456!2d4.39!3d45.43!2sSaint-Etienne!5e0!3m2!1sfr!2sfr!4v0000000000"
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade">
+    <h2>Commande & Contact</h2>
+
+    <div class="contact-buttons">
+      <a href="tel:+33612345678"><i class="fas fa-phone"></i> Appeler</a>
+      <a href="https://www.google.com/maps" target="_blank"><i class="fas fa-route"></i> Itinéraire</a>
+      <a href="#"><i class="fas fa-shopping-bag"></i> Commander en ligne</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Big M - Tous droits réservés
+  </footer>
+
+  <script>
+    const elements = document.querySelectorAll('.fade');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
